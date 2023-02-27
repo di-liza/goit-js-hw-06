@@ -10,8 +10,8 @@ const loginFormBtnEl = loginFormEl.lastElementChild;
 loginFormBtnEl.addEventListener("click", onFormSubmit);
 
 function onFormSubmit() {
-  if (inputFormEmailEl.value !== "" && inputFormPassEl.value !== "") {
-    loginFormEl.addEventListener("submit", (event) => {
+  loginFormEl.addEventListener("submit", (event) => {
+    if (inputFormEmailEl.value !== "" && inputFormPassEl.value !== "") {
       event.preventDefault();
       const userData = {
         email: inputFormEmailEl.value,
@@ -19,8 +19,9 @@ function onFormSubmit() {
       };
       console.log("Email:", userData.email, "\nPassword:", userData.password);
       event.target.reset();
-    });
-  } else {
+    }
+  });
+  if (inputFormEmailEl.value === "" || inputFormPassEl.value === "") {
     alert("Будь ласка, заповніть всі поля форми.");
   }
 }
