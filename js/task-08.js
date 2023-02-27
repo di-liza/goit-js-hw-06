@@ -11,8 +11,8 @@ loginFormBtnEl.addEventListener("click", onFormSubmit);
 
 function onFormSubmit() {
   loginFormEl.addEventListener("submit", (event) => {
+    event.preventDefault();
     if (inputFormEmailEl.value !== "" && inputFormPassEl.value !== "") {
-      event.preventDefault();
       const userData = {
         email: inputFormEmailEl.value,
         password: inputFormPassEl.value,
